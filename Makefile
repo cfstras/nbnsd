@@ -1,9 +1,7 @@
-CFLAGS += -Wall -Os
+CFLAGS += -Wall -Wno-cpp -O2 -std=c99
 
-all: nbnsd
-
-nbnsd: nbnsd.o
-	$(CC) $(CFLAGS) $(LDFLAGS) -s nbnsd.o -o nbnsd
+nbnsd: nbnsd.c Makefile
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 clean:
-	rm -f *.o nbnsd *~
+	rm -f nbnsd
