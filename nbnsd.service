@@ -1,0 +1,12 @@
+[Unit]
+Description=NetBIOS resolve service for <serial> and hostname
+After=network.target
+
+[Service]
+ExecStartPre=/bin/bash -c 'systemctl set-environment MACHINE_HOST="$(cat /proc/cpuinfo | grep Serial | cut -d" " -f2 | sed "s/^0*//"| cut -c 1-15)"'
+ExecStart=/usr/bin/nbnsd -m -n "${MACHINE_HOST}"
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
