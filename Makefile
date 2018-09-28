@@ -1,7 +1,9 @@
 CFLAGS += -Wall -Wno-cpp -O2 -std=c99
+OUT := native
 
-nbnsd: nbnsd.c Makefile
+$(OUT)/nbnsd: nbnsd.c Makefile
+	@mkdir -p $(OUT)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 clean:
-	rm -f nbnsd
+	rm -f nbnsd $(OUT)/nbnsd
