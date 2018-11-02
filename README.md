@@ -1,7 +1,15 @@
-# nbnsd
+# nbnsd [![Build Status](https://travis-ci.org/cfstras/nbnsd.svg?branch=master)](https://travis-ci.org/cfstras/nbnsd)
 Simple NetBIOS responder for Linux.
 Makes your device reachable by name from any Windows Host.
 Based on http://www.mostang.com/~davidm/nbnsd/
+
+Contains simple installer for Raspbian.
+
+## Downloads
+
+You can download prebuild binaries [on the releases page](https://github.com/cfstras/nbnsd/releases).
+
+## Build & install
 
 Quick setup:
 
@@ -18,7 +26,7 @@ boards such as Raspberry Pis.
 
 You can remove the `ExecStartPre=` line, and the `-m -n "${MACHINE_HOST}"` arguments.
 
-# Tips
+## Tips
 If you want to enable NetBIOS-resolving on your Linux box, follow these steps:
 
 - install `smbclient` and `samba`
@@ -26,5 +34,5 @@ If you want to enable NetBIOS-resolving on your Linux box, follow these steps:
 - in `/etc/samba/smbd.conf`, uncomment the line `name resolve order = wins lmhosts bcast`
 - enable and start `winbindd`, `smbd`, and `nmbd`.
 
-# License
+## License
 [MIT](https://opensource.org/licenses/MIT)
