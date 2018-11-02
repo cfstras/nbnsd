@@ -5,12 +5,12 @@ Based on http://www.mostang.com/~davidm/nbnsd/
 
 Quick setup:
 
-    make
-    install -m 755 nbnsd /usr/bin
-    cp nbnsd.service /etc/systemd/system/
-    systemctl daemon-reload
-    systemctl enable nbnsd.service
-    systemctl start nbnsd.service
+```bash
+make
+sudo make install   # installs systemd service
+systemctl enable nbnsd.service
+systemctl start nbnsd.service
+```
 
 You might want to modify the service file -- the packaged one adds a fallback
 hostname using the CPU serial number as found in `/proc/cpuinfo` on many SoC
