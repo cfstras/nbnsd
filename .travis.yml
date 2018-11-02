@@ -4,17 +4,17 @@ before_install:
 
 script:
 - make clean
-- make
 - make -f Makefile.armhf clean
-- make -f Makefile.armhf
+- make
+- make -f Makefile.armhf SUFFIX=.arm
 
 deploy:
   provider: releases
   api_key:
     secure: j91QOpll0KaDDBGgypJAtjDfoOLlJDXyNkpxADoogyukzOAmpVAsMJ5dN608cO5kwTuehVQtp76KvA/UasB3fxIFDlFy46KDqMlexpXKmYVMzo5JG7tdQbV81BJcpW30f3Nyp93T+ti8E+ofWXG4VC32lUUGs1eNV/UXU9nuQW7SqVIH9dnGU6aM8TohTN9xojUryLFEy+Plm7E1+lqdpNGxIlaViUiboqBtxgdvH10sNSmSQGIYRcmILJQcEBKVf0Ie41HWcZ5j/V8I51lMeNSlp1LxqhUQHlijMsqCcP/YjeUv+8I2Kb/Yp7ScR5aPzHl+SOxcMYwAj+wVaqs68e5trTT3euYIop+471SMMnxfbSTubwKCEuCYRKgkEt/8ddI8ighpbOZfycCE1ZV7QK7yTgmXw0bVWDsNOhnPSkfPs+Z33d2JQpvssY9ZCY+6bObUAVF9EiqnP3PtYjkespSPzWeBSkmVz9UB/MGdaJhSB66cS8w3xX10Z7ZWZymsgjgb3rwup+BOr1YWXAd7cD/0ecnNOyMhFQgmady2p8YfqLxgmutDHD1fjXTsNwXG/MeBAATMVY5zaOSwYzpXGbyBHoqap18YfnLq9L9astan1xG7i4MA7DhsdRAhhWqbUZ0vM4MxtrfD7rKmvHmor1PNgcqcvoZgRB7fkYHTXZk=
   file:
-    - arm/nbnsd
-    - native/nbnsd
+    - out/nbnsd.arm
+    - out/nbnsd
   skip_cleanup: true
   on:
     repo: cfstras/nbnsd

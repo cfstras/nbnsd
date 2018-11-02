@@ -1,17 +1,18 @@
 CFLAGS += -Wall -Wno-cpp -O2 -std=c99
 
-OUT := native
-PREFIX := 
+OUT := out
+PREFIX :=
+SUFFIX :=
 
 .PHONY: clean install
 
 
-$(OUT)/nbnsd: nbnsd.c Makefile
+$(OUT)/nbnsd$(SUFFIX): nbnsd.c Makefile
 	@mkdir -p $(OUT)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 clean:
-	rm -f nbnsd $(OUT)/nbnsd
+	rm -vf nbnsd $(OUT)/*
 
 install: $(OUT)/nbnsd
 	install -m 755 $< $(PREFIX)/usr/bin
