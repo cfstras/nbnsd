@@ -9,9 +9,20 @@ Contains simple installer for Raspbian.
 
 You can download prebuild binaries [on the releases page](https://github.com/cfstras/nbnsd/releases).
 
+## Quick install
+
+```bash
+# on arm
+wget https://github.com/cfstras/nbnsd/releases/download/v1.1/nbnsd.arm -O /usr/bin/nbnsd
+chmod a+x /usr/bin/nbnsd
+wget https://raw.githubusercontent.com/cfstras/nbnsd/master/nbnsd.service -O /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now nbnsd
+```
+
 ## Build & install
 
-Quick setup:
+Setup with compile:
 
 ```bash
 make
